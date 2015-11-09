@@ -1,0 +1,30 @@
+{
+  "name": "test-site",
+  "version": "1.0.0",
+  "description": "Hello World",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server:lint": "jshint server.js",
+    "build": "browserify app/app.js -t stringify -t hintify -o public/js/app.js",
+    "watch": "watchify app/app.js -t stringify -t hintify --verbose -o public/js/app.js",
+    "start": "node server",
+    "prestart:server1": "npm run server:lint",
+    "start:server": "nodemon -w server.js server.js",
+    "dev": "npm run watch & npm run start:server"
+  },
+  "author": "Joel Villahermosa",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-ui-router": "^0.2.15",
+    "restify": "^4.0.3"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "hintify": "^0.1.0",
+    "jshint": "^2.8.0",
+    "nodemon": "^1.8.1",
+    "stringify": "^3.1.0"
+  }
+}
